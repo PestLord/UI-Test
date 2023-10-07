@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Action Moved;
+    public static Action Moved;
     private Rigidbody _rigidbody;
     private Vector3 vector3;
     private Vector3 _playerPosition;
@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Moved?.Invoke();
             RaycastHit hit;
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))

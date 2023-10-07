@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private GameManager _gameManager;
 
+    public Action<Color> Destroyed;
+    public Action<Color> Created;
     private float _boardSize;
 
     private Color[] _colors;
